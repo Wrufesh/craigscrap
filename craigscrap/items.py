@@ -11,5 +11,6 @@ import scrapy
 class Advertisement(scrapy.Item):
     post_datetime = scrapy.Field()
     post_title = scrapy.Field()
+    price = scrapy.Field()
     post_detail_link = scrapy.Field()
     model_year = scrapy.Field()
