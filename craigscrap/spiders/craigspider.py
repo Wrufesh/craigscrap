@@ -36,23 +36,23 @@ class CraigSpider(scrapy.Spider):
         sel = response.xpath('//div[@id="postingbody"]/blockquote/blockquote/ul/li/a/@href').extract()
         item_urls = make_url_list(sel)
         for item_url in item_urls:
-            # yield scrapy.Request(item_url, self.parse_item)
-            yield scrapy.Request(item_url, callback=self.pagination_check)
+            yield scrapy.Request(item_url, self.parse_item)
+            # yield scrapy.Request(item_url, callback=self.pagination_check)
 
     # in middle in case of many pages
-    def pagination_check(self, response):
-        url = response.url
-        # from scrapy.shell import inspect_response
-        # inspect_response(response)
-        range_data = response.xpath('//div[@class="toc_legend"]//span[@class="range"]/text()').extract()[0]
-        p_urls = get_paginated_url(range_data, url)
-        for p_url in p_urls:
-            scrapy.log.msg(p_url)
-            yield scrapy.Request(p_url, callback=self.parse_item)
+    # def pagination_check(self, response):
+    #     url = response.url
+    #     # from scrapy.shell import inspect_response
+    #     # inspect_response(response)
+    #     range_data = response.xpath('//div[@class="toc_legend"]//span[@class="range"]/text()').extract()[0]
+    #     p_urls = get_paginated_url(range_data, url)
+    #     for p_url in p_urls:
+    #         scrapy.log.msg(p_url)
+    #         yield scrapy.Request(p_url, callback=self.parse_item)
 
     def parse_item(self, response):
-        from scrapy.shell import inspect_response
-        inspect_response(response)
+        # from scrapy.shell import inspect_response
+        # inspect_response(response)
         item = Advertisement()
         detail_link_prefix = 'http://' + response.url.split('/')[2]
         selectors = response.xpath('//div[@class="content"]/p[@class="row"]')
