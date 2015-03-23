@@ -48,7 +48,7 @@ class CraigSpider(scrapy.Spider):
         p_urls = get_paginated_url(range_data, url)
         for p_url in p_urls:
             scrapy.log.msg(p_url)
-            yield scrapy.Request(p_url, callback=self.parse_item, follow=False)
+            yield scrapy.Request(p_url, callback=self.parse_item)
 
     def parse_item(self, response):
         from scrapy.shell import inspect_response
