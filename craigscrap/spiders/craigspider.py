@@ -62,12 +62,12 @@ class CraigSpider(scrapy.Spider):
             detail_link = detail_link_prefix + sel.xpath('//span[@class="pl"]/a/@href').extract()[0]
             item['post_detail_link'] = detail_link
             item['price'] = sel.xpath('//span[@class="l2"]/span[@class="price"]/text()').extract()[0]
-            # yield item
-            yield scrapy.Request(detail_link, self.parse_item_details, meta={'item': item})
+            yield item
+            # yield scrapy.Request(detail_link, self.parse_item_details, meta={'item': item})
 
-    def parse_item_details(self, response):
-        # from scrapy.shell import inspect_response
-        # inspect_response(response)
-        item = response.meta['item']
-        item['model_year'] = response.xpath('//p[@class="attrgroup"]/span')[0].xpath('b/text()').extract()[0]
-        return item
+    # def parse_item_details(self, response):
+    #     # from scrapy.shell import inspect_response
+    #     # inspect_response(response)
+    #     item = response.meta['item']
+    #     item['model_year'] = response.xpath('//p[@class="attrgroup"]/span')[0].xpath('b/text()').extract()[0]
+    #     return item
