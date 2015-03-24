@@ -25,6 +25,9 @@ MONGODB_PORT = 27017
 MONGODB_DB = "craigslist"
 MONGODB_COLLECTION = "craig"
 
+EXTENSIONS = {
+    'craigscrap.email_extension.SendEmail': 1000,
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'craigscrap (+http://www.yourdomain.com)'

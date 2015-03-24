@@ -1,1 +1,0 @@
-http://<place_name>.craigslist.org/search/cto?autoMakeModel=ford+ranger&autoMinYear=2005

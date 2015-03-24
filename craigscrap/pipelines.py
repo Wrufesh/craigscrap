@@ -40,7 +40,7 @@ class DuplicatesPipeline(object):
             # self.post_detail_links_seen.add(item['post_detail_link'])
             self.collection.insert_one(dict(item))
             # pdb.set_trace()
-            log.msg("Question added to MongoDB database!",
+            log.msg("Item added to MongoDB database!",
                     level=log.DEBUG, spider=spider)
 
             return item
