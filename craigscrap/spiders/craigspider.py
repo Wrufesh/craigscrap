@@ -1,4 +1,6 @@
 import scrapy
+import datetime
+import pdb
 from craigscrap.items import Advertisement
 
 
@@ -27,6 +29,10 @@ def get_paginated_url(string_data, url):
     return url_list
 
 
+def to_datetime_object(date_str):
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M")
+
+
 class CraigSpider(scrapy.Spider):
     name = 'craigs'
     allowed_domains = ['craigslist.org']
@@ -36,6 +42,7 @@ class CraigSpider(scrapy.Spider):
         sel = response.xpath('//div[@id="postingbody"]/blockquote/blockquote/ul/li/a/@href').extract()
         item_urls = make_url_list(sel)
         for item_url in item_urls:
+            # pdb.set_trace()
             yield scrapy.Request(item_url, self.parse_item)
             # yield scrapy.Request(item_url, callback=self.pagination_check)
 
@@ -54,14 +61,30 @@ class CraigSpider(scrapy.Spider):
         # from scrapy.shell import inspect_response
         # inspect_response(response)
         item = Advertisement()
+        location = response.url.split('/')[2].split('.')[0]
         detail_link_prefix = 'http://' + response.url.split('/')[2]
-        selectors = response.xpath('//div[@class="content"]/p[@class="row"]')
+        selectors = response.xpath('//span[@class="pl"]')
+        # pdb.set_trace()
         for sel in selectors:
-            item['post_datetime'] = sel.xpath('//span[@class="pl"]/time/@datetime').extract()[0]
-            item['post_title'] = sel.xpath('//span[@class="pl"]/a/text()').extract()[0]
-            detail_link = detail_link_prefix + sel.xpath('//span[@class="pl"]/a/@href').extract()[0]
+            date_str = sel.xpath('//span[@class="pl"]/time/@datetime').extract()[0]
+            item['post_datetime'] = to_datetime_object(date_str)
+            item['post_title'] = sel.xpath('a/text()').extract()[0]
+            extracted_link = sel.xpath('a/@href').extract()[0]
+
+            # Check whether the url is absolute or relative as it varies
+            # pdb.set_trace()
+            if extracted_link.split('/')[0] == u'http:':
+                detail_link = extracted_link
+            else:
+                detail_link = detail_link_prefix + extracted_link
+
             item['post_detail_link'] = detail_link
-            item['price'] = sel.xpath('//span[@class="l2"]/span[@class="price"]/text()').extract()[0]
+            price = sel.xpath('following-sibling::*/span[@class="price"]/text()').extract()
+            if len(price) != 0:
+                item['price'] = price[0]
+            else:
+                item['price'] = 'Not Mentioned'
+            item['location'] = location
             yield item
             # yield scrapy.Request(detail_link, self.parse_item_details, meta={'item': item})
 

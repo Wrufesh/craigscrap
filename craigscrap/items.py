@@ -13,4 +13,4 @@ class Advertisement(scrapy.Item):
     post_title = scrapy.Field()
     price = scrapy.Field()
     post_detail_link = scrapy.Field()
-    model_year = scrapy.Field()
+    location = scrapy.Field()

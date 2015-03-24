@@ -13,5 +13,18 @@ BOT_NAME = 'craigscrap'
 SPIDER_MODULES = ['craigscrap.spiders']
 NEWSPIDER_MODULE = 'craigscrap.spiders'
 
+ITEM_PIPELINES = {
+    'craigscrap.pipelines.DuplicatesPipeline': 100,
+    # 'craigscrap.pipelines.MongoDBPipeline':200,
+    # 'myproject.pipelines.JsonWriterPipeline': 800,
+}
+
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "craigslist"
+MONGODB_COLLECTION = "craig"
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'craigscrap (+http://www.yourdomain.com)'
