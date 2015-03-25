@@ -13,6 +13,8 @@ BOT_NAME = 'craigscrap'
 SPIDER_MODULES = ['craigscrap.spiders']
 NEWSPIDER_MODULE = 'craigscrap.spiders'
 
+MYEXT_ENABLED = True
+
 ITEM_PIPELINES = {
     'craigscrap.pipelines.DuplicatesPipeline': 100,
     # 'craigscrap.pipelines.MongoDBPipeline':200,
@@ -26,7 +28,7 @@ MONGODB_DB = "craigslist"
 MONGODB_COLLECTION = "craig"
 
 EXTENSIONS = {
-    'craigscrap.email_extension.SendEmail': 0,
+    'craigscrap.email_extension.SendCraigsEmail': 60,
 }
 
 DOWNLOAD_DELAY = 3

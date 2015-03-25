@@ -4,12 +4,12 @@ from scrapy.mail import MailSender
 import pdb
 
 
-class SendEmail(object):
+class SendCraigsEmail(object):
 
     def __init__(self):
         self.frm = 'wrufesh@gmail.com'
         self.to = 'a@f.com, b@g.com'
-        pdb.set_trace()
+        # pdb.set_trace()
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -17,6 +17,7 @@ class SendEmail(object):
             raise NotConfigured
 
         ext = cls()
+        # pdb.set_trace()
 
         # crawler.signals.connect(ext.spider_opened, signal=signals.spider_opened)
         crawler.signals.connect(ext.send_mail, signal=signals.spider_closed)
@@ -24,6 +25,7 @@ class SendEmail(object):
         return ext
 
     def send_mail(self, spider):
+        pdb.set_trace()
         spider.log("Are you getting the message?")
 
     def spider_opened(self, spider):
