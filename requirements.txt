@@ -1,2 +1,4 @@
-Scrapy
+Scrapy==0.24.5
+Twisted==15.0.0
 pymongo==3.0
+scrapyd==1.0.1
