@@ -13,7 +13,6 @@ BOT_NAME = 'craigscrap'
 SPIDER_MODULES = ['craigscrap.spiders']
 NEWSPIDER_MODULE = 'craigscrap.spiders'
 
-MYEXT_ENABLED = True
 
 ITEM_PIPELINES = {
     'craigscrap.pipelines.DuplicatesPipeline': 100,
@@ -27,12 +26,25 @@ MONGODB_PORT = 27017
 MONGODB_DB = "craigslist"
 MONGODB_COLLECTION = "craig"
 
+# For extensions
+MYEXT_ENABLED = True
 EXTENSIONS = {
     'craigscrap.email_extension.SendCraigsEmail': 60,
 }
 
+# This set of variables will try to prevent IP Block
 DOWNLOAD_DELAY = 3
 COOKIES_ENABLED = False
+
+# Email settings
+MAIL_FROM = 'wrufesh@gmail.com'
+MAIL_HOST = 'smtp.mandrillapp.com'
+MAIL_PORT = 587
+MAIL_USER = 'wrufesh@gmail.com'
+MAIL_PASS = '9VUdXY_pRBSJ9bEQtDZdyg'
+MAIL_TLS = False
+MAIL_SSL = False
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'craigscrap (+http://www.yourdomain.com)'
