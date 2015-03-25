@@ -33,8 +33,8 @@ class DuplicatesPipeline(object):
 
     def process_item(self, item, spider):
         query = self.collection.find({'post_detail_link': item['post_detail_link']})
-        if query.count() != 0 :
-        # if item['post_detail_link'] in self.post_detail_links_seen:
+        if query.count() != 0:
+            # if item['post_detail_link'] in self.post_detail_links_seen:
             raise DropItem("Duplicate item found: %s" % item)
         # Only new item
         else:
@@ -46,7 +46,3 @@ class DuplicatesPipeline(object):
                     level=log.DEBUG, spider=spider)
 
             return item
-
-# class CraigscrapPipeline(object):
-#     def process_item(self, item, spider):
-#         return item

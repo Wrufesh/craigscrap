@@ -31,15 +31,16 @@ class SendCraigsEmail(object):
         return ext
 
     def send_mail(self, spider):
-        # pdb.set_trace()
-        # self.get_body_msg()
-        self.mailer.send(to=self.to,
-                         subject="New Car And Trucks From California",
-                         body=self.get_body_msg(),
-                         cc=["another@example.com"],
-                         mimetype='text/html'
-                         )
-        spider.log("Mail Send to registered users")
+        q = self.new_items.find()
+        # Sends mail when we have new items
+        if q.count() != 0:
+            self.mailer.send(to=self.to,
+                             subject="New Cars And Trucks From California",
+                             body=self.get_body_msg(),
+                             cc=["another@example.com"],
+                             mimetype='text/html'
+                             )
+            spider.log("New Items Found And Mail Send to registered users")
         self.db.drop_collection(settings.MONGODB_COLLECTION_TEMP)
         spider.log("New Items Dropped")
 
@@ -55,18 +56,18 @@ class SendCraigsEmail(object):
             <html>
                 <body>
                     <ul>
-                        <li>
+                        <li>Posted On:
                         """ + time + """\
-                        </li>
+                        </li>Title:
                         <li><a href="
                         """ + link + """\
                         "><b>
                         """ + post_title + """\
                         </b></a></li>
-                        <li>
+                        <li>Location:
                         """ + location + """\
                         </li>
-                        <li>
+                        <li>Price:
                         """ + price + """\
                         </li>
                     </ul>
