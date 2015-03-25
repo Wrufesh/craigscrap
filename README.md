@@ -30,9 +30,9 @@ MAIL_TLS = False                                # Required by some smtp servers
 MAIL_SSL = False                                # Required by some smtp servers  
 ```
 ### List of recipient  
-`EMAIL_TO = ['wrufesh@gmail.com`]  
+`EMAIL_TO = ['wrufesh@gmail.com']`  
 
-## Run the spider by the following command  
+## Run spider by executing the following command:  
 `scrapy crawl craigs`  
 
 ## Deployment  
@@ -49,7 +49,7 @@ scrapyd.conf
      poll_interval = 1800     # 1800 sec = 3o min, Default is 5(in sec)' 
 ```
 
-### Setup deployment sever  
+### Setup deployment server  
   *In scrapy.cfg*  
   ```
   [settings]' 
@@ -62,13 +62,13 @@ scrapyd.conf
   password = secret'  
   'version = HG'  
   ```
-### Now run the following command:  
+### Now run the following command to deploy:  
   `scrapyd deploy <somename>`  
   
 ### Run and control spider. 
   *scrapyd provides nice JSON API to run and control spiders.*  
   
-### Run the following command to run the spider from remote  
+### Run the following command to run spider from remote  
 'http://localhost:6800/schedule.json -d project=craigscap -d spider=craigs'  
 *assuming*  
 * project name = craigscrap  
