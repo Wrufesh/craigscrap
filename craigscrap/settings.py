@@ -26,8 +26,11 @@ MONGODB_DB = "craigslist"
 MONGODB_COLLECTION = "craig"
 
 EXTENSIONS = {
-    'craigscrap.email_extension.SendEmail': 1000,
+    'craigscrap.email_extension.SendEmail': 0,
 }
+
+DOWNLOAD_DELAY = 3
+COOKIES_ENABLED = False
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'craigscrap (+http://www.yourdomain.com)'

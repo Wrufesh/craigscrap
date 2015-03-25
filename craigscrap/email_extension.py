@@ -6,10 +6,10 @@ import pdb
 
 class SendEmail(object):
 
-    pdb.set_trace()
     def __init__(self):
         self.frm = 'wrufesh@gmail.com'
         self.to = 'a@f.com, b@g.com'
+        pdb.set_trace()
 
     @classmethod
     def from_crawler(cls, crawler):
