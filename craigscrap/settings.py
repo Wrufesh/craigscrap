@@ -20,11 +20,13 @@ ITEM_PIPELINES = {
     # 'myproject.pipelines.JsonWriterPipeline': 800,
 }
 
-
-MONGODB_SERVER = "localhost"
-MONGODB_PORT = 27017
+# MongoDB setting
+# MONGODB_SERVER = "localhost"
+# MONGODB_PORT = 27017
+MONGODB_URL = 'mongodb://localhost:27017/'
 MONGODB_DB = "craigslist"
-MONGODB_COLLECTION = "craig"
+MONGODB_COLLECTION_MAIN = "craig"
+MONGODB_COLLECTION_TEMP = "new_craig"
 
 # For extensions
 MYEXT_ENABLED = True

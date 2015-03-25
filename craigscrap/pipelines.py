@@ -26,9 +26,10 @@ class DuplicatesPipeline(object):
         # )
 
         # For pymongo==3.0
-        connection = MongoClient('mongodb://localhost:27017/')
+        connection = MongoClient(settings.MONGODB_URL)
         db = connection[settings.MONGODB_DB]
-        self.collection = db[settings.MONGODB_COLLECTION]
+        self.collection = db[settings.MONGODB_COLLECTION_MAIN]
+        self.new_items = db[settings.MONGODB_COLLECTION_TEMP]
 
     def process_item(self, item, spider):
         query = self.collection.find({'post_detail_link': item['post_detail_link']})
@@ -39,6 +40,7 @@ class DuplicatesPipeline(object):
         else:
             # self.post_detail_links_seen.add(item['post_detail_link'])
             self.collection.insert_one(dict(item))
+            self.new_items.insert_one(dict(item))
             # pdb.set_trace()
             log.msg("Item added to MongoDB database!",
                     level=log.DEBUG, spider=spider)
