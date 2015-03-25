@@ -8,7 +8,7 @@ pymongo==3.0
 scrapyd==1.0.1
 
 # Install Craigscrap
-pip install git+https://github.com/Wrufesh/craigscrap.git@clean1
+git clone -b clean1 https://github.com/Wrufesh/craigscrap.git
 
 # Database Setting
 In craigscrap/settings.py
