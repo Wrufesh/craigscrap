@@ -45,9 +45,8 @@ class SendCraigsEmail(object):
 
     def get_body_msg(self):
         msg = '<h1>New Cars And Trucks from California </h1></br>'
-        msg = ''
         for i in self.new_items.find():
-            time = i['post_datetime'].strftime('%d<sup>th</sup> of %B,%Y - %H:%M')
+            time = i['post_datetime'].strftime('%B-%d, %Y - %H:%M')
             post_title = i['post_title']
             location = i['location']
             price = i['price']

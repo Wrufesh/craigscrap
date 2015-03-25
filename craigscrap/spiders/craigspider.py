@@ -1,6 +1,5 @@
 import scrapy
 import datetime
-import pdb
 from craigscrap.items import Advertisement
 
 
@@ -15,18 +14,18 @@ def make_url_list(raw_urls):
     return new_urls
 
 
-def get_paginated_url(string_data, url):
-    url_list = []
-    x = string_data.split(' ')
-    if len(x) == 5:
-        total_items = int(x[4])
-        total_loop = total_items/100
-        for i in range(0, total_loop):
-            v = str(i * 100)
-            url_list.append(url + '&s=' + v)
-    else:
-        url_list.append(url)
-    return url_list
+# def get_paginated_url(string_data, url):
+#     url_list = []
+#     x = string_data.split(' ')
+#     if len(x) == 5:
+#         total_items = int(x[4])
+#         total_loop = total_items/100
+#         for i in range(0, total_loop):
+#             v = str(i * 100)
+#             url_list.append(url + '&s=' + v)
+#     else:
+#         url_list.append(url)
+#     return url_list
 
 
 def to_datetime_object(date_str):
