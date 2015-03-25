@@ -56,18 +56,18 @@ class SendCraigsEmail(object):
             <html>
                 <body>
                     <ul>
-                        <li>Posted On:
+                        <li><b>Posted On: </b>
                         """ + time + """\
-                        </li>Title:
-                        <li><a href="
+                        </li>
+                        <li><b>Title: </b><a href="
                         """ + link + """\
                         "><b>
                         """ + post_title + """\
                         </b></a></li>
-                        <li>Location:
+                        <li><b>Location: </b>
                         """ + location + """\
                         </li>
-                        <li>Price:
+                        <li><b>Price: </b>
                         """ + price + """\
                         </li>
                     </ul>
