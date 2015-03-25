@@ -19,7 +19,7 @@ class SendCraigsEmail(object):
                                  settings.MAIL_TLS,
                                  settings.MAIL_SSL
                                  )
-        self.to = ['wrufesh@gmail.com']
+        self.to = settings.EMAIL_TO
 
     @classmethod
     def from_crawler(cls, crawler):

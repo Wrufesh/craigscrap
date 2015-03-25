@@ -47,6 +47,9 @@ MAIL_PASS = '9VUdXY_pRBSJ9bEQtDZdyg'
 MAIL_TLS = False
 MAIL_SSL = False
 
+# List of recipient.
+EMAIL_TO = ['wrufesh@gmail.com']
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'craigscrap (+http://www.yourdomain.com)'
