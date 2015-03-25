@@ -45,8 +45,8 @@ c:\scrapyd\scrapyd.conf (Windows)
 scrapyd.conf  
 ~/.scrapyd.conf (users home directory)  
 
-    #### In configuration file set  
-    'poll_interval = 1800     # 1800 sec = 3o min, Default is 5(in sec)' 
+     # In configuration file set  
+     poll_interval = 1800     # 1800 sec = 3o min, Default is 5(in sec)' 
 ```
 
 ### Setup deployment sever  
