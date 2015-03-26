@@ -69,7 +69,7 @@ scrapyd.conf
   *scrapyd provides nice JSON API to run and control spiders.*  
   
 ### Run the following command to run spider from remote  
-'http://localhost:6800/schedule.json -d project=craigscap -d spider=craigs'  
+`http://localhost:6800/schedule.json -d project=craigscap -d spider=craigs`  
 *assuming*  
 * project name = craigscrap  
 * spider name = craigs  
