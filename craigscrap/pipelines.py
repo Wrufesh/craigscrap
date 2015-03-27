@@ -26,7 +26,7 @@ class DuplicatesPipeline(object):
         # )
 
         # For pymongo==3.0
-        connection = MongoClient(settings.MONGODB_URL)
+        connection = MongoClient(settings.MONGODB_URI)
         db = connection[settings.MONGODB_DB]
         self.collection = db[settings.MONGODB_COLLECTION_MAIN]
         self.new_items = db[settings.MONGODB_COLLECTION_TEMP]

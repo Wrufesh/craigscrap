@@ -23,7 +23,7 @@ ITEM_PIPELINES = {
 # MongoDB setting
 # MONGODB_SERVER = "localhost"
 # MONGODB_PORT = 27017
-MONGODB_URL = 'mongodb://localhost:27017/'
+MONGODB_URI = 'mongodb://localhost:27017/'
 MONGODB_DB = "craigslist"
 MONGODB_COLLECTION_MAIN = "craig"
 MONGODB_COLLECTION_TEMP = "new_craig"
