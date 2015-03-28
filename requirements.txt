@@ -1,3 +1,4 @@
+cffi
 Scrapy==0.24.5
 Twisted==15.0.0
 pymongo==2.8
