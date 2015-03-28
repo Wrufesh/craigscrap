@@ -1,4 +1,4 @@
 Scrapy==0.24.5
 Twisted==15.0.0
-pymongo==3.0
+pymongo==2.8
 scrapyd==1.0.1
