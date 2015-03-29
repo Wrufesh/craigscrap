@@ -20,6 +20,7 @@ class CraigSpider(CrawlSpider):
     name = 'craigs'
     allowed_domains = ['craigslist.org']
     start_urls = ['http://geo.craigslist.org/iso/us/ca']
+    download_delay = 3
     rules = (
            Rule(LinkExtractor(restrict_xpaths=('//div[@id="postingbody"]/blockquote/blockquote/ul/li/a',),
                               process_value=modify_url,
