@@ -8,25 +8,13 @@
 from scrapy.exceptions import DropItem
 from craigscrap import settings
 from scrapy import log
-import pdb
-# For old version
-# import pymongo  
-# for pymongo==3.0
 from pymongo import MongoClient
 
 
 class DuplicatesPipeline(object):
 
     def __init__(self):
-        # self.post_detail_links_seen = set()
-        # # For older version of pymongo
-        # connection = pymongo.Connection(
-        #     settings['MONGODB_SERVER'],
-        #     settings['MONGODB_PORT']
-        # )
-
-        # For pymongo==3.0
-        connection = MongoClient(settings.MONGODB_URL)
+        connection = MongoClient(settings.MONGODB_URI)
         db = connection[settings.MONGODB_DB]
         self.collection = db[settings.MONGODB_COLLECTION_MAIN]
         self.new_items = db[settings.MONGODB_COLLECTION_TEMP]

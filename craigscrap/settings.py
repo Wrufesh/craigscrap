@@ -21,10 +21,10 @@ ITEM_PIPELINES = {
 }
 
 # MongoDB setting
-# MONGODB_SERVER = "localhost"
-# MONGODB_PORT = 27017
-MONGODB_URL = 'mongodb://localhost:27017/'
-MONGODB_DB = "craigslist"
+# MONGODB_URI = 'mongodb://heroku_app35310923:v1knkra10pdpitit36mrd2mfv6@ds043170.mongolab.com:43170/heroku_app35310923'
+# MONGODB_DB = "heroku_app35310923"
+MONGODB_URI = 'mongodb://localhost:27017/'
+MONGODB_DB = 'craigslist'
 MONGODB_COLLECTION_MAIN = "craig"
 MONGODB_COLLECTION_TEMP = "new_craig"
 

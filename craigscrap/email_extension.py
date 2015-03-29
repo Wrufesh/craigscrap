@@ -8,7 +8,7 @@ from pymongo import MongoClient
 class SendCraigsEmail(object):
 
     def __init__(self):
-        connection = MongoClient(settings.MONGODB_URL)
+        connection = MongoClient(settings.MONGODB_URI)
         self.db = connection[settings.MONGODB_DB]
         self.new_items = self.db[settings.MONGODB_COLLECTION_TEMP]
         self.mailer = MailSender(settings.MAIL_HOST,
