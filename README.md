@@ -8,7 +8,7 @@ craiglist scrapper
 * scrapyd==1.0.1  
 
 ## Install Craigscrap  
-`git clone -b clean1 https://github.com/Wrufesh/craigscrap.git`  
+`git clone -b clean2 https://github.com/Wrufesh/craigscrap.git`  
 
 ## Database Setting  
 *In craigscrap/settings.py*  
